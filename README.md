@@ -54,5 +54,11 @@ Fri Jul 29 19:49:58 2022: Falco initialized with configuration file /etc/falco/f
 Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/falco_rules.yaml: </br>
 Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/falco_rules.local.yaml: </br>
 Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/rules.d/my_rules: </br>
-Fri Jul 29 19:49:58 2022: Starting internal webserver, listening on port 8765
+Fri Jul 29 19:49:58 2022: Starting internal webserver, listening on port 8765 </br>
+<br/>
 
+Until now, you have learned how to use a Detection Engine. Rules were set in place, and when violated an alert would trigger. But in order to enforce security, the next step is to respond. <br/>
+<br/>
+A Response Engine takes action upon violations of a ruleset. Alerts are now just the messenger to a final action, a response to the violation, that may solve it.<br/>
+<br/>
+Falco is a Detection Engine, but it can be upgraded to a Response Engine with the help of Falco Sidekick. Another developer-oriented option would be to use the gRPC API.
