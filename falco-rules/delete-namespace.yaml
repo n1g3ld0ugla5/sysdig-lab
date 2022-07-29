@@ -1,0 +1,54 @@
+- rule: K8s Namespace Deleted (Nigel)
+  desc: Detect any attempt to delete a namespace
+  condition: >-
+    (kactivity and non_system_user and kdelete and namespace and
+    response_successful)
+  output: >-
+    K8s Namespace Deleted (user=%ka.user.name namespace=%ka.target.name
+    resp=%ka.response.code decision=%ka.auth.decision reason=%ka.auth.reason)
+  priority: info
+  tags:
+  - NIST_800-171_3.14.6
+  - FedRAMP_AU-2
+  - HIPAA_164.308(a)
+  - HITRUST
+  - HITRUST_CSF_10.j
+  - HIPAA_164.312(b)
+  - HITRUST_CSF_01.s
+  - NIST_800-53_CM-5
+  - HITRUST_CSF_06.i
+  - HITRUST_CSF_09.b
+  - NIST
+  - NIST_800-171_3.3.1
+  - NIST_800-53
+  - HITRUST_CSF_09.ae
+  - NIST_800-171_3.4.5
+  - HITRUST_CSF_09.aa
+  - k8s
+  - NIST_800-171
+  - FedRAMP
+  - HITRUST_CSF_10.k
+  - NIST_800-171_3.3.2
+  - NIST_800-53_AU-2
+  - HIPAA
+  - HITRUST_CSF
+  - HITRUST_CSF_09.ad
+  - HITRUST_CSF_01.p
+  - HITRUST_CSF_09.ab
+  source: k8s_audit
+  append: false
+  exceptions:
+  - name: user_name_target_name
+    comps:
+    - in
+    - in
+    fields:
+    - ka.user.name
+    - ka.target.name
+  - name: user_name_target_name_prefix
+    comps:
+    - in
+    - startswith
+    fields:
+    - ka.user.name
+    - ka.target.name
