@@ -49,3 +49,10 @@ Basically, it'll note that the engine version should be '9' - not '99':
 kubectl logs --selector app.kubernetes.io/name=falco -n falco
 ```
 
+Fri Jul 29 19:49:58 2022: Falco version 0.32.1 </br>
+Fri Jul 29 19:49:58 2022: Falco initialized with configuration file /etc/falco/falco.yaml </br>
+Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/falco_rules.yaml: </br>
+Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/falco_rules.local.yaml: </br>
+Fri Jul 29 19:49:58 2022: Loading rules from file /etc/falco/rules.d/my_rules: </br>
+Fri Jul 29 19:49:58 2022: Starting internal webserver, listening on port 8765
+
