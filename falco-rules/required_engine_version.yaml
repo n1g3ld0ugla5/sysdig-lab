@@ -1,0 +1,9 @@
+customRules:
+  my_rules: |-
+    - required_engine_version: 99
+    - rule: Unauthorized mount process
+      desc: There is an unauthorized mount process running
+      condition: evt.type=execve and proc.name=mount
+      output: Unauthorized process (%proc.cmdline) running
+      priority: WARNING
+      tags: [my_rules, process, mount]
