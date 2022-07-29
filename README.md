@@ -22,3 +22,14 @@ The log output of the pod should now show that this was an unauthorized process:
 
 14:47:49.958251300: Warning Unauthorized process (sudo ls) running k8s.ns=<NA> k8s.pod=<NA> container=host <br/>
 14:47:49.965807188: Warning Unauthorized process (sudo ls) running k8s.ns=<NA> k8s.pod=<NA> container=host
+
+``` wget https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/falco-rules/required_engine_version.yaml ```
+
+Execute the following command to re-run Falco with the required engine version of 99:
+
+``` helm upgrade falco falcosecurity/falco -n falco --reuse-values -f required_engine_version.yaml ```
+
+Basically, it'll note that the engine version should be '9' - not '99':
+
+``` kubectl logs --selector app.kubernetes.io/name=falco -n falco ```
+
