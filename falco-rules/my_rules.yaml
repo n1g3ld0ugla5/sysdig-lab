@@ -1,0 +1,24 @@
+customRules:
+  my_rules: |-
+    - rule: Terminal shell in container
+      desc: A shell was used as the entrypoint/exec point into a container with an attached terminal.
+      condition: >
+      spawned_process and container
+      and shell_procs and proc.tty != 0
+      and container_entrypoint
+      and not user_expected_terminal_shell_in_container_conditions
+      output: A shell was spawned in a container with an attached terminal (...)
+      priority: NOTICE
+      tags: [container, shell, mitre_execution]
+
+      - macro: spawned_process
+      condition: evt.type = execve and evt.dir=<
+
+      - macro: container
+      condition: (container.id != host)
+
+      - macro: shell_procs
+      condition: proc.name in (shell_binaries)
+
+      - list: shell_binaries
+      items: [ash, bash, csh, ksh, sh, tcsh, zsh, dash]
