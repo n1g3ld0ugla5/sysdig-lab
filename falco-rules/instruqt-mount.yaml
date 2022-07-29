@@ -1,0 +1,14 @@
+customRules:
+  my_rules: |-
+    - rule: Unauthorized mount process
+      desc: There is an unauthorized mount process running
+      condition: mount_process
+      output: Unauthorized process (%proc.cmdline) running
+      priority: WARNING
+      tags: [process, mount]
+
+    - macro: mount_process
+      condition: evt.type=execve and proc.name in (forbidden_processes)
+
+    - list: forbidden_processes
+      items: [mount, sudo, su]
