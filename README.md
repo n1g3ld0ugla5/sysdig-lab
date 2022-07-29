@@ -1,15 +1,22 @@
-# sysdig-lab
-Lab Content for testing Sysdig Secure &amp; Falco
+# Falco Lab Scenario
 
-``` docker run -d -p 80:80 mcr.microsoft.com/azuredocs/aci-helloworld:latest ```
-
-``` docker ps ```
+This YAML file outlined the following items as forbidden_processes - [mount, sudo, su]
 
 ``` wget https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/falco-rules/instruqt-mount.yaml ```
 
+Update the falco ruleset
+
 ``` helm upgrade falco falcosecurity/falco -n falco --reuse-values -f instruqt-mount.yaml ```
 
+Make sure pods are recreated after the falco rules update
+
 ``` kubectl get pods -n falco ```
+
+list the files as a priveleged user
+
+``` sudo ls ``` 
+
+The log output of the pod should now show that this was an unauthorized process:
 
 ``` kubectl logs --selector app.kubernetes.io/name=falco -n falco | grep sudo ```
 
