@@ -114,3 +114,18 @@ helm upgrade sysdig sysdig/sysdig-deploy \
     --set nodeAnalyzer.nodeAnalyzer.apiEndpoint=${API_ENDPOINT} \
     --set global.kspm.deploy=true
 ```
+
+<img width="669" alt="Screenshot 2022-08-02 at 14 51 20" src="https://user-images.githubusercontent.com/109959738/182391545-97b0ad1f-a277-4143-aa18-27c1d90102ec.png">
+
+```
+helm upgrade rapid-response sysdig/rapid-response \
+  --namespace sysdig-rapid-response \
+  --create-namespace \
+  --set sysdig.accessKey=${SYSDIG_ACCESS_KEY} \
+  --set rapidResponse.passphrase=${PASSPHRASE} \
+  --set rapidResponse.apiEndpoint=${API_ENDPOINT}
+
+echo "The rapid response passphrase is ${PASSPHRASE}"
+```
+
+
