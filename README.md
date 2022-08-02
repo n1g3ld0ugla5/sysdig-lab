@@ -91,7 +91,16 @@ PASSED:
 SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   ubuntu/apache2  --apiurl https://eu1.app.sysdig.com
 ```
 
-Full image results here: https://eu1.app.sysdig.com/secure/#/scanning/assets/results/17077d17f8df329402013b1333f262ea/overview (id 17077d17f8df329402013b1333f262ea) <br/>
+DIRTY ROGUE IMAGE:
+```
+SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   gcr.io/tigera-demo/attacker-pod  --apiurl https://eu1.app.sysdig.com
+```
+
+<img width="937" alt="Screenshot 2022-08-02 at 10 56 51" src="https://user-images.githubusercontent.com/109959738/182347421-eaf7f5a0-ed59-474a-bf2a-78f1688fc5b1.png">
+
+
+
+Full image results here: https://eu1.app.sysdig.com/secure/#/scanning/assets/results/****/overview (id *****) <br/>
 Execution logs written to: /home/cloudshell-user/scan-logs
 
 ```
