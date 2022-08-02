@@ -4,5 +4,7 @@ metadata:
    name: default-deny
    namespace: knp-test
 spec:
-   podSelector:
-      matchLabels: {}
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
