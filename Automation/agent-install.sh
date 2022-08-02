@@ -38,5 +38,6 @@ helm install rapid-response sysdig/rapid-response \
   --create-namespace \
   --set sysdig.accessKey=${SYSDIG_ACCESS_KEY} \
   --set rapidResponse.passphrase=${PASSPHRASE}
+  --set rapidResponse.apiEndpoint=${API_ENDPOINT}  
 
 echo "The rapid response passphrase is ${PASSPHRASE}"
