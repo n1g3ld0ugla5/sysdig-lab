@@ -63,7 +63,24 @@ A Response Engine takes action upon violations of a ruleset. Alerts are now just
 <br/>
 Falco is a Detection Engine, but it can be upgraded to a Response Engine with the help of Falco Sidekick. Another developer-oriented option would be to use the gRPC API.
 
-Running the Vulnerability Scanner:
+Install the vulnerability scanner: <br/>
+<br/>
+https://docs.sysdig.com/en/docs/sysdig-secure/vulnerabilities/pipeline/#running-the-cli-scanner
+
+```
+curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L -s https://download.sysdig.com/scanning/sysdig-cli-scanner/latest_version.txt)/linux/amd64/sysdig-cli-scanner"
+```
+
+```
+chmod +x ./sysdig-cli-scanner
+```
+
+Running the Vulnerability Scanner: <br/>
+<br/>
+You can scan images by running the sysdig-cli-scanner command:
+```
+SECURE_API_TOKEN=<your-api-token> ./sysdig-cli-scanner --apiurl <sysdig-api-url> <image-name>
+```
 
 ```
 SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   sysdiglabs/dummy-vuln-app  --apiurl https://eu1.app.sysdig.com
