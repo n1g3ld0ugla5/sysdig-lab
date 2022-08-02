@@ -62,3 +62,9 @@ Until now, you have learned how to use a Detection Engine. Rules were set in pla
 A Response Engine takes action upon violations of a ruleset. Alerts are now just the messenger to a final action, a response to the violation, that may solve it.<br/>
 <br/>
 Falco is a Detection Engine, but it can be upgraded to a Response Engine with the help of Falco Sidekick. Another developer-oriented option would be to use the gRPC API.
+
+Running the Vulnerability Scanner:
+
+```
+SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   sysdiglabs/dummy-vuln-app  --apiurl https://eu1.app.sysdig.com
+```
