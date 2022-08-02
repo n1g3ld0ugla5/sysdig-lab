@@ -82,6 +82,15 @@ You can scan images by running the sysdig-cli-scanner command:
 SECURE_API_TOKEN=<your-api-token> ./sysdig-cli-scanner --apiurl <sysdig-api-url> <image-name>
 ```
 
+FAILED:
 ```
 SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   sysdiglabs/dummy-vuln-app  --apiurl https://eu1.app.sysdig.com
 ```
+PASSED:
+```
+SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   ubuntu/apache2  --apiurl https://eu1.app.sysdig.com
+```
+
+Full image results here: https://eu1.app.sysdig.com/secure/#/scanning/assets/results/17077d17f8df329402013b1333f262ea/overview (id 17077d17f8df329402013b1333f262ea) <br/>
+Execution logs written to: /home/cloudshell-user/scan-logs
+
