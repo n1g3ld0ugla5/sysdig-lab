@@ -7,4 +7,4 @@ spec:
   podSelector:
     matchLabels:
       app: backend
-  ingress: []
+  egress: []
