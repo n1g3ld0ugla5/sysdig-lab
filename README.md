@@ -94,3 +94,14 @@ SECURE_API_TOKEN="***a*ca9-***c-4**4-80**-63***e8c***4" ./sysdig-cli-scanner   u
 Full image results here: https://eu1.app.sysdig.com/secure/#/scanning/assets/results/17077d17f8df329402013b1333f262ea/overview (id 17077d17f8df329402013b1333f262ea) <br/>
 Execution logs written to: /home/cloudshell-user/scan-logs
 
+```
+helm upgrade sysdig sysdig/sysdig-deploy \
+    --namespace sysdig-agent \
+    --create-namespace \
+    --set global.sysdig.accessKey=${SYSDIG_ACCESS_KEY} \
+    --set global.sysdig.region=${SAAS_REGION} \
+    --set global.clusterConfig.name=${CLUSTER_NAME} \
+    --set agent.sysdig.settings.collector=${COLLECTOR_ENDPOINT} \
+    --set nodeAnalyzer.nodeAnalyzer.apiEndpoint=${API_ENDPOINT} \
+    --set global.kspm.deploy=true
+```
