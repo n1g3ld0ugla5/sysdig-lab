@@ -128,4 +128,10 @@ helm upgrade rapid-response sysdig/rapid-response \
 echo "The rapid response passphrase is ${PASSPHRASE}"
 ```
 
+Run container as root:
+
+Use ``` kubectl describe pod ... ``` to find the node running your Pod and the container ID (docker://...) <br/>
+Run ``` docker exec -it -u root ID /bin/bash ```
+
+<img width="1383" alt="Screenshot 2022-08-08 at 12 30 49" src="https://user-images.githubusercontent.com/109959738/183408612-fdc7f37f-b26b-49e3-8848-d59a593d69c1.png">
 
