@@ -51,7 +51,7 @@ helm install sysdig-admission-controller sysdig/admission-controller \
 --create-namespace -n sysdig-admission-controller \
 --set sysdig.secureAPIToken=${SYSDIG_API_TOKEN} \
 --set clusterName=${K8S_CLUSTER_NAME} \
---set sysdig.url=${API_ENDPOINT} \
+--set sysdig.url=https://${API_ENDPOINT} \
 --set features.k8sAuditDetections=true 
 
 echo "Your admission controller was installed successfully"
