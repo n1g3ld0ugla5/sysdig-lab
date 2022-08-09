@@ -229,6 +229,17 @@ wget -q --timeout=5 nginx -O -
 kubectl delete ns knp-test	
 ```
 
+## Alert on activity in Storefront namespace
+
+```
+kubectl apply -f https://installer.calicocloud.io/storefront-demo.yaml
+```
+
+Introduce a rogue attacker application:
+```
+kubectl apply -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
+```
+
 Critical Severity Command:
 ```
 "kubectl exec --namespace=eva -it \
