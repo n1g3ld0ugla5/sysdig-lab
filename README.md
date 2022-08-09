@@ -145,7 +145,7 @@ kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/
 
 Verify the pod is running:
 ``` 
-kubectl get pod shell-demo:
+kubectl get pod shell-demo
 ``` 
 
 Get a shell to the running container:
@@ -172,12 +172,25 @@ cat /proc/1/maps
 ``` 
 ``` 
 apt-get update
-``` 
+```
+```
 apt-get install -y tcpdump
+```
+```
 tcpdump
+```
+```
 apt-get install -y lsof
+```
+```
 lsof
+```
+```
 apt-get install -y procps
+```
+```
 ps aux
+```
+```
 ps aux | grep nginx
 ``` 
