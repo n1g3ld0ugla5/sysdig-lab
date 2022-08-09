@@ -159,6 +159,10 @@ In your shell, list the root directory:
 ls /
 ``` 
 
+<img width="1079" alt="Screenshot 2022-08-09 at 10 30 53" src="https://user-images.githubusercontent.com/109959738/183615478-fb3e1c03-5109-41ea-8e22-e8f82d25fe3f.png">
+
+
+
 In your shell, experiment with other commands. Here are some examples:
 ``` 
 # You can run these example commands inside the container
