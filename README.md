@@ -136,3 +136,48 @@ Run ``` kubectl exec-as -u <username> <podname> -- /bin/bash ```
 
 <img width="1383" alt="Screenshot 2022-08-08 at 12 30 49" src="https://user-images.githubusercontent.com/109959738/183408612-fdc7f37f-b26b-49e3-8848-d59a593d69c1.png">
 
+## Shell Demo
+
+Create the pod:
+``` 
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/Automation/shell-demo.yaml
+```
+
+Verify the pod is running:
+``` 
+kubectl get pod shell-demo:
+``` 
+
+Get a shell to the running container:
+``` 
+kubectl exec --stdin --tty shell-demo -- /bin/bash
+``` 
+
+In your shell, list the root directory:
+``` 
+# Run this inside the container
+ls /
+``` 
+
+In your shell, experiment with other commands. Here are some examples:
+``` 
+# You can run these example commands inside the container
+ls /
+``` 
+``` 
+cat /proc/mounts
+``` 
+``` 
+cat /proc/1/maps
+``` 
+``` 
+apt-get update
+``` 
+apt-get install -y tcpdump
+tcpdump
+apt-get install -y lsof
+lsof
+apt-get install -y procps
+ps aux
+ps aux | grep nginx
+``` 
