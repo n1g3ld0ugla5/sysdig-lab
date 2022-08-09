@@ -208,3 +208,39 @@ eksctl scale nodegroup --cluster nigel-eks-cluster --name ng-215e1f2e --nodes 0
 
 <img width="875" alt="Screenshot 2022-08-09 at 11 57 29" src="https://user-images.githubusercontent.com/109959738/183631890-f10ec4c3-9a00-41cd-8a6d-6235250f7054.png">
 
+## Terminal Shell in Container
+```
+kubectl create ns knp-test 
+```
+```
+kubectl create deployment --namespace=knp-test nginx --image=nginx
+```
+```
+kubectl expose --namespace=knp-test deployment nginx --port=80
+```
+Medium Severity Command:
+```
+kubectl run --namespace=knp-test access --rm -ti --image busybox /bin/sh
+```
+```
+wget -q --timeout=5 nginx -O -	
+```
+```
+kubectl delete ns knp-test	
+```
+
+Critical Severity Command:
+```
+"kubectl exec --namespace=eva -it \
+  $(kubectl get pod -l ""app.kubernetes.io/name=example-voting-app-voter"" \
+    --namespace=eva -o jsonpath='{.items[0].metadata.name}') -- /bin/sh"
+```
+
+List processes:
+```
+ps
+```
+Review source:
+```
+cat voter.py
+```
