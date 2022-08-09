@@ -265,3 +265,21 @@ Review source:
 ```
 cat voter.py
 ```
+
+## Self-Service Activity Scanner
+
+```
+wget https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/Automation/security-checks.sh
+```
+
+```
+sudo chmod +x security-checks.sh 
+```
+
+```
+ls | grep *.sh
+```
+
+```
+cat security-checks.sh
+```
