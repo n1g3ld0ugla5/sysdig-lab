@@ -198,3 +198,13 @@ ps aux
 ```
 ps aux | grep nginx
 ``` 
+
+## Cluster Scaling
+
+I scale the cluster down to '0' nodes to ensure no unnecessary costs are accrued:
+``` 
+eksctl scale nodegroup --cluster nigel-eks-cluster --name ng-215e1f2e --nodes 0
+```
+
+<img width="875" alt="Screenshot 2022-08-09 at 11 57 29" src="https://user-images.githubusercontent.com/109959738/183631890-f10ec4c3-9a00-41cd-8a6d-6235250f7054.png">
+
