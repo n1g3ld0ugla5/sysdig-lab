@@ -171,6 +171,11 @@ ls /
 ``` 
 cat /proc/mounts
 ``` 
+
+``` 
+cd /tmp
+```
+
 ``` 
 cat /proc/1/maps
 ``` 
@@ -240,11 +245,16 @@ Introduce a rogue attacker application:
 kubectl apply -f https://installer.calicocloud.io/rogue-demo.yaml -n storefront
 ```
 
+Find out the label of pods to exec into:
+```
+kubectl get pods -n storefront --show-labels
+```
+
 Critical Severity Command:
 ```
-"kubectl exec --namespace=eva -it \
-  $(kubectl get pod -l ""app.kubernetes.io/name=example-voting-app-voter"" \
-    --namespace=eva -o jsonpath='{.items[0].metadata.name}') -- /bin/sh"
+"kubectl exec --namespace=storefront -it \
+  $(kubectl get pod -l "app=frontend" \
+    --namespace=storefront -o jsonpath='{.items[0].metadata.name}') -- /bin/sh"
 ```
 
 List processes:
