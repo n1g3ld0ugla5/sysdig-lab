@@ -8,7 +8,7 @@ curl -LO "https://download.sysdig.com/scanning/bin/sysdig-cli-scanner/$(curl -L 
 read -p "Turn the file into an executable - (chmod +x ./sysdig-cli-scanner)"
 chmod +x ./sysdig-cli-scanner
 read -p "If the API token env variable is present, we can scan this image - (gcr.io/tigera-demo/attacker-pod)"
-SECURE_API_TOKEN="773a8ca9-343c-4004-8043-6323ce8c2044" ./sysdig-cli-scanner   gcr.io/tigera-demo/attacker-pod  --apiurl https://eu1.app.sysdig.com
+SECURE_API_TOKEN="******" ./sysdig-cli-scanner   gcr.io/tigera-demo/attacker-pod  --apiurl https://eu1.app.sysdig.com
 
 read -p "Create the new workloads"
 kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml
