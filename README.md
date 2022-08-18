@@ -318,6 +318,10 @@ So we proceed to build a workload with the required permissions
 ```
 kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/security-context.yaml -n drift-control
 ```
+Or...
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/deployment-insecure.yaml -n drift-control
+```
 
 Verify that the Pod's Container is running:
 ```
@@ -327,6 +331,11 @@ kubectl get pod security-context-demo -n drift-control
 Get a shell to the running Container:
 ```
 kubectl exec -it security-context-demo -n drift-control -- sh
+```
+
+Or...
+```
+kubectl exec -it test -n drift-control -- sh
 ```
 
 Try the below commands again (they should work)
