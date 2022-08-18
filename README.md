@@ -291,5 +291,5 @@ sh -c curl https://raw.githubusercontent.com/sysdiglabs/policy-editor-attack/mas
 
 Drift Control:
 ```
-kubectl exec -it pod/<pod-name> -n storefront -- sh
+kubectl exec -it pod/nginx -n drift-namespace -- sh
 ```
