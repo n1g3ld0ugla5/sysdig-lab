@@ -4,9 +4,7 @@ metadata:
   name: security-context-demo
 spec:
   securityContext:
-    runAsUser: 1000
-    runAsGroup: 3000
-    fsGroup: 2000
+    runAsNonRoot: false
   volumes:
   - name: sec-ctx-vol
     emptyDir: {}
