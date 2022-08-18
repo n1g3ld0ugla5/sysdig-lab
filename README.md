@@ -304,5 +304,36 @@ NB: Let it run for 24 hours before running exec session on pod
 ```
 kubectl exec -it pod/nginx -n drift-control -- sh
 ```
+The below commands will not work due to being in unprivleged mode:
 
-This should be immediately flagged as unusual behaviour
+```
+mount -t tmpfs none /tmp
+```
+
+```
+mount -t securityfs none /sys/kernel/security
+```
+
+So we proceed to build a workload with the required permissions
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/security-context.yaml -n drift-control
+```
+
+Verify that the Pod's Container is running:
+```
+kubectl get pod security-context-demo -n drift-control
+```
+
+Get a shell to the running Container:
+```
+kubectl exec -it security-context-demo -n drift-control -- sh
+```
+
+Try the below commands again (they should work)
+```
+mount -t tmpfs none /tmp
+```
+
+```
+mount -t securityfs none /sys/kernel/security
+```
