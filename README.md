@@ -316,7 +316,7 @@ mount -t securityfs none /sys/kernel/security
 
 So we proceed to build a workload with the required permissions
 ```
-kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/security-context.yaml -n drift-control
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/priviliged-pod.yaml -n drift-control
 ```
 
 Verify that the Pod's Container is running:
