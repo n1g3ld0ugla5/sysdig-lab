@@ -329,11 +329,28 @@ Get a shell to the running Container:
 kubectl exec -it test-pod-1 -n drift-control -- sh
 ```
 
-Try the below commands again (they should work)
+## CRITICAL: Suspicious Home Directory Creation
+
+Yum update should fail
 ```
-mount -t tmpfs none /tmp
+yum update
 ```
 
+Go to the /etc/yum.repos.d/ directory.
 ```
-mount -t securityfs none /sys/kernel/security
+cd /etc/yum.repos.d/
 ```
+
+Run the below commands
+```
+sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
+sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+```
+
+Now run the yum update
+```
+yum update -y
+```
+
+Check the Web UI --> Suspicious Home Directory Creation GENERATED <br/>
+Identified unusual activity related to Malwares - ``` useradd -r -u 59 -g tss -d /dev/null -s /sbin/nologin -c Account used for TPM access tss ```
