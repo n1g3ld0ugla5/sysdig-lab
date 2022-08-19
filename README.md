@@ -355,28 +355,62 @@ yum update -y
 Check the Web UI --> Suspicious Home Directory Creation GENERATED <br/>
 Identified unusual activity related to Malwares - ``` useradd -r -u 59 -g tss -d /dev/null -s /sbin/nologin -c Account used for TPM access tss ```
 
-Daniella's Drift Flow:
 ```
 kubectl exec --stdin --tty aws-node-mnqf4 -n kube-system -- /bin/bash
 ```
 
-or 
+Daniella's Drift Flow:
+
+<img width="1434" alt="Screenshot 2022-08-19 at 11 43 15" src="https://user-images.githubusercontent.com/109959738/185602706-0506dc93-fc3c-4655-a536-3427850c1d63.png">
+
+Create a simple deployment
 ```
-kubectl exec pod/static-web -it -- bash
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
 ```
 
-Command not found: wget
+Exec into the pod to make binary changes
 ```
-wget https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/falco-rules/my_rules.yaml
+kubectl exec pod/nginx-deployment-**** -it -- bash
 ```
 
+Install kubectl binary with curl on Linux
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+```
+
+If it fails (and it should), make sure to run kubectl update
 ```
 apt update
 ```
 
+Proceed to install cURL so that we can download the binary
 ```
-apt install wget
+apt install curl
 ```
 
 Then follow the kubectl install flow identified in: <br/>
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
+This should trigger the alerts within the web UI:
+<img width="1434" alt="Screenshot 2022-08-19 at 11 38 43" src="https://user-images.githubusercontent.com/109959738/185602537-d510a079-118d-4ea4-ada2-4658fba49d08.png">
