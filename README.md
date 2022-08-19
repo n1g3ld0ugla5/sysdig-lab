@@ -250,6 +250,8 @@ Find out the label of pods to exec into:
 kubectl get pods -n storefront --show-labels
 ```
 
+
+
 Critical Severity Command:
 ```
 "kubectl exec --namespace=storefront -it \
@@ -355,7 +357,25 @@ yum update -y
 Check the Web UI --> Suspicious Home Directory Creation GENERATED <br/>
 Identified unusual activity related to Malwares - ``` useradd -r -u 59 -g tss -d /dev/null -s /sbin/nologin -c Account used for TPM access tss ```
 
+## Priviliged Pod Alert
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/priviliged-pod.yaml
+```
 
+```
+kubectl get pods -n drift-control
+```
+
+```
+kubectl exec --stdin --tty test-pod-1 -n drift-control -- /bin/bash
+```
+
+
+
+
+<br/>
+<br/>
+<br/>
 
 
 ## Daniella's Drift Flow:
@@ -394,7 +414,7 @@ kubectl exec pod/nginx-deployment-**** -it -- bash
 
 Install kubectl binary with curl on Linux
 ```
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" --insecure
 ```
 
 If it fails (and it should), make sure to run kubectl update
@@ -416,16 +436,4 @@ This should trigger the alerts within the web UI:
 
 
 
-## Priviliged Pod Alert
-```
-kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/priviliged-pod.yaml
-```
-
-```
-kubectl get pods -n drift-control
-```
-
-```
-kubectl exec --stdin --tty test-pod-1 -n drift-control -- /bin/bash
-```
 
