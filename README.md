@@ -354,3 +354,9 @@ yum update -y
 
 Check the Web UI --> Suspicious Home Directory Creation GENERATED <br/>
 Identified unusual activity related to Malwares - ``` useradd -r -u 59 -g tss -d /dev/null -s /sbin/nologin -c Account used for TPM access tss ```
+
+Daniella's Drift Flow:
+```
+kubectl exec --stdin --tty aws-node-mnqf4 -n kube-system -- /bin/bash
+```
+
