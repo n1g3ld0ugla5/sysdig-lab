@@ -355,9 +355,8 @@ yum update -y
 Check the Web UI --> Suspicious Home Directory Creation GENERATED <br/>
 Identified unusual activity related to Malwares - ``` useradd -r -u 59 -g tss -d /dev/null -s /sbin/nologin -c Account used for TPM access tss ```
 
-```
-kubectl exec --stdin --tty aws-node-mnqf4 -n kube-system -- /bin/bash
-```
+
+
 
 ## Daniella's Drift Flow:
 
@@ -414,3 +413,19 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 This should trigger the alerts within the web UI:
 <img width="1434" alt="Screenshot 2022-08-19 at 11 38 43" src="https://user-images.githubusercontent.com/109959738/185602537-d510a079-118d-4ea4-ada2-4658fba49d08.png">
+
+
+
+## Priviliged Pod Alert
+```
+kubectl apply -f https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/workloads/priviliged-pod.yaml
+```
+
+```
+kubectl get pods -n drift-control
+```
+
+```
+kubectl exec --stdin --tty test-pod-1 -n drift-control -- /bin/bash
+```
+
