@@ -360,3 +360,23 @@ Daniella's Drift Flow:
 kubectl exec --stdin --tty aws-node-mnqf4 -n kube-system -- /bin/bash
 ```
 
+or 
+```
+kubectl exec pod/static-web -it -- bash
+```
+
+Command not found: wget
+```
+wget https://raw.githubusercontent.com/n1g3ld0ugla5/sysdig-lab/main/falco-rules/my_rules.yaml
+```
+
+```
+apt update
+```
+
+```
+apt install wget
+```
+
+Then follow the kubectl install flow identified in: <br/>
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
