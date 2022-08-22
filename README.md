@@ -1,4 +1,4 @@
-# Falco Lab Scenario
+# Sysdig Cloud Detection & Response (CDR) Lab
 
 This YAML file outlined the following items as forbidden_processes - [mount, sudo, su]
 
