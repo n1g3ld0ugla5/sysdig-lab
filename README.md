@@ -434,6 +434,8 @@ https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 This should trigger the alerts within the web UI:
 <img width="1434" alt="Screenshot 2022-08-19 at 11 38 43" src="https://user-images.githubusercontent.com/109959738/185602537-d510a079-118d-4ea4-ada2-4658fba49d08.png">
 
-
-
+Block this directory
+```
+/usr/bin/top
+```
 
