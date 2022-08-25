@@ -439,3 +439,8 @@ Block this directory
 /usr/bin/top
 ```
 
+## AWS Risk Assessment
+
+```
+./aws-risk-assessment-linux --bucket bretts-athena-bucket --region us-east-1
+```
